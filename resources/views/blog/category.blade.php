@@ -68,7 +68,7 @@
 
 
 <!-- Main Content -->
-
+s
 @section('content')
 <main class="main-content">
     <div class="section bg-gray">
@@ -78,7 +78,7 @@
                 
                 <div class="col-md-8 col-xl-9">
                     <div class="row gap-y">
-                        @forelse ($posts as $post)
+                        @foreach ($posts as $post)
                         
                         <div class="col-md-6">
                             <div class="card border hover-shadow-6 mb-6 d-block">
@@ -89,13 +89,13 @@
                                 </div>
                             </div>
                         </div>
-                        @empty
+                        {{-- @empty --}}
                             <p class="text-center">
                             No records found for <strong> {{request()->query('search')}}</strong> 
                             </p>
             
                         
-                        @endforelse
+                        @endforeach
                         
                         
                         

@@ -72,10 +72,11 @@ class PostController extends Controller
         ]);
         // $tag = Tag::find(['tag[]']);
         // $post->tags()->attach($post);
-        if($request->tags)
-        {
-            $post->tags()->attach($request->tags);
-        }
+        // $category = Category::find([3, 4]);
+        // $product->categories()->attach($category);
+       
+            $post->tags()->attach($request->tag);
+        
         // $user->roles()->attach($roleIds);
         // if($request->tags){
         //     $post->tags()->sync($request->$tags);
@@ -114,7 +115,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('post.create')->with('posts',$post)->with('categories', Category::all())
+        return view('post.create', compact('posts'))->with('posts',$post)->with('categories', Category::all())
         ->with('tags', Tag::all());
     }
 
@@ -137,7 +138,7 @@ class PostController extends Controller
             $post->description =$data['description'];
             $post->content = $data['content'];
             $post->category_id= $data['category'];
-            $post->publish_at = $data['publish_at'];
+            $post->publish_at = $data['publish_at']; 
 
             
             if($request->tags){

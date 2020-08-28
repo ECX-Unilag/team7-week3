@@ -112,7 +112,7 @@ class TagsController extends Controller
         //     return redirect()->back();
         // }
         $tag->delete();
-        session()->flash('success', 'Tag has been updated');
+        session()->flash('success', 'Tag has been delelted');
         return redirect('/tag');
     }
 }

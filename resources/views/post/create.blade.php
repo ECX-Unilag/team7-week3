@@ -55,9 +55,13 @@
                             @if (isset($posts))
 
                             @if($posts->hasTag($tag->id))
-                                
+                                {{-- @foreach($posts->tags as $category) 
+                                   selected
+                                     @endforeach --}}
+                                     selected
 
-                            @endif
+                          @endif
+                            {{-- {{$posts->tags->name}} --}}
                             @endif>
                             {{ $tag->name }}
                         </option>
